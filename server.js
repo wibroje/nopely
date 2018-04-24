@@ -14,29 +14,23 @@ app.get('/', function (req,res) {
 	res.render('index');
 })
 
+//SIGNUP//
+app.get('/signup', function (req, res) {
+  res.render('signup');
+});
 
-// app.get('/signup', function (req, res) {
-//   res.send('signup coming soon');
-// });
-
-
-// app.get('/login', function (req, res) {
-//   res.send('login coming soon');
-// });
-
-
-
-
-
-mongoose.connect("mongodb://localhost/nopely");
-
-if (process.env.NODE_ENV == "production") {
-  mongoose.connect(process.env.MLAB_URL)
-} else {
-	mongoose.connect("mongodb://localhost/nopely");
-}
+app.post('/signup', function (req, res) {
+  db.User.createSecure(req.body.username, req.body.email, req.body.password, function (err, user) {
+    res.json(user);
+  });
+});
+//////////
 
 
+//LOGIN//
+app.get('/login', function (req, res) {
+  res.send('login coming soon');
+});
 
 // listen
 app.set('port', process.env.PORT || 3000)
