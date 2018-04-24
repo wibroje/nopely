@@ -29,7 +29,7 @@ app.post('/signup', function (req, res) {
 
 //LOGIN//
 app.get('/login', function (req, res) {
-  res.send('login coming soon');
+  res.render('login');
 });
 
 // listen
