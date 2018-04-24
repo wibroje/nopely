@@ -15,14 +15,14 @@ app.get('/', function (req,res) {
 })
 
 
-app.get('/signup', function (req, res) {
-  res.send('signup coming soon');
-});
+// app.get('/signup', function (req, res) {
+//   res.send('signup coming soon');
+// });
 
 
-app.get('/login', function (req, res) {
-  res.send('login coming soon');
-});
+// app.get('/login', function (req, res) {
+//   res.send('login coming soon');
+// });
 
 // listen
 app.set('port', process.env.PORT || 3000)
