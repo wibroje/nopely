@@ -6,3 +6,5 @@ if (process.env.NODE_ENV == "production") {
 } else {
 	mongoose.connect("mongodb://localhost/nopely");
 }
+
+heroku config:set MLAB_URL=mongodb://nopely:nopely@ds015760.mlab.com:15760/echobase
