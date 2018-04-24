@@ -24,6 +24,20 @@ app.get('/', function (req,res) {
 //   res.send('login coming soon');
 // });
 
+
+
+
+
+mongoose.connect("mongodb://localhost/nopely");
+
+if (process.env.NODE_ENV == "production") {
+  mongoose.connect(process.env.MLAB_URL)
+} else {
+	mongoose.connect("mongodb://localhost/nopely");
+}
+
+
+
 // listen
 app.set('port', process.env.PORT || 3000)
 
