@@ -18,7 +18,7 @@ $(document).ready(function(){
 				$("#welcome").append("<h2>" + "welcome to nopely, " + response.username + "!" + "</h2>").hide().fadeIn(2000).fadeOut(2000);
 
 					setTimeout(function(){
-						window.location = "/"
+						window.location = "/login"
 					}, 4000)
 
 			}
@@ -33,6 +33,16 @@ $(document).ready(function(){
 				email: $('#email-input').val(),
 				password: $('#password-input').val()
 			}
+
+			$.ajax({
+				url : "/sessions",
+				method : "POST",
+				data : data,
+				success : function(response){
+					$('.form-control').val("");
+					window.location = "/profile"
+				}
+			})
 	})
 
 });
