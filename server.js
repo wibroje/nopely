@@ -21,6 +21,21 @@ app.use(session({
     cookie: { maxAge: 30 * 60 * 1000 } // 30 minute cookie lifespan (in milliseconds)
 }));
 
+app.use('/', function (req, res, next) {    
+    req.currentUser = function (callback) {
+      db.User.findOne({_id: req.session.userId}, function (err, user) {
+        if (!user) {
+          callback("No User Found", null)
+        } else {
+          req.user = user;
+          callback(null, user);
+        }
+      });
+    };
+
+    next();
+  });
+
 app.get('/', function (req,res) {
 	res.render('index');
 })
@@ -29,6 +44,7 @@ app.get('/', function (req,res) {
 /////////
 app.get('/signup', function (req, res) {
     res.render('signup');
+
 });
 
 app.post('/signup', function (req, res) {

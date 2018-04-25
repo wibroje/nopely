@@ -45,4 +45,23 @@ $(document).ready(function(){
 			})
 	})
 
+//////////////////////////////////////////////////////////////////
+
+var getGenre = 'https://api.themoviedb.org/3/genre/movie/list?language=en-US&api_key=193da39670a2ca585a07c3b83b8d786c';
+
+	$('#togenre').on('click', function(e){
+
+	$.get(getGenre, function(response){
+		response.genres.forEach(function(genre){
+			var name = genre.name;
+			$('#genrelist').append('<h3>' + name + '</h3><hr>')
+		});
+	});
+	});
+	
 });
+
+
+
+
+
