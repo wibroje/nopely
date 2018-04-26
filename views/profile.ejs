@@ -1,30 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- bootstrap css -->
-  <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <script src="scripts/app.js"></script>
-
+<% include partials/head %>
   <title><%= user.username %>'s profile</title>
-</head>
+
 <body>
-  <div class="container text-center">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h1>nopely</h1>
-        <hr>
-        <h2>welcome back <%= user.username %>. <a id="logout" href="/logout" class="btn btn-danger pull-right">Log Out</a>
+<% include partials/header %>
+
+  <div class="container text-align">
+    <h2>oh, hey <%= user.username %>
         </h2>
-            <div>
-              <a id="togenre" class="btn btn-warning">browse genres</a>
+    <div class="row">
+      <div class="col-12">
+        
+          <div class="row">
+            <div id="watchlist">
+              <h2>here is your watchlist!</h2>
+              <br>
+              
             </div>
-            <div id="genrelist"></div>
+        </div>
+    <div class="row">
+      <div class="col-12">
+            <div id="genrelist">
+          <h2>select genre of your choice
+          </h2>
+        <br>
+              <button id="fantasy-btn" class="btn btn-warning">Fantasy</button>
+              <button id="scifi-btn" class="btn btn-warning">Sci-Fi</button>
+              <button id="horror" class="btn btn-warning">Horror</button>
+              <button id="romance" class="btn btn-warning">Romance</button>
+              <a id="logout" href="/logout" class="btn btn-danger pull-right" style="align-self:flex-end;">log out</a>
+            </div>
       </div>
     </div>
   </div>

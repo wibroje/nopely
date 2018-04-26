@@ -1,0 +1,39 @@
+#nopely-header {
+	background-color: rgba(255,236,134,.9);
+	text-align: center;
+}
+
+#nopely-text {
+	font-family: 'Gugi', cursive;
+	font-weight: bold;
+	font-size: 700%;
+}
+
+#nopely-logo {
+	
+	
+}
+
+#signup-btn {
+	
+}
+
+#login-btn {
+
+}
+
+.text-align {
+	text-align: center;
+}
+
+h2 {
+	color: white;
+	font-size: 400%;
+	font-family: 'Patrick Hand SC', cursive;
+
+}
+
+body{
+	background-color: rgba(0,0,0,.9);
+}
+
