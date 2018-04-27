@@ -10,7 +10,7 @@ $(document).ready(function(){
 			}
 
 			$.ajax({
-			url  : "/signup",
+			url  : "/users",
 			method : "POST",
 			data : data,
 			success : function(response){
@@ -47,25 +47,39 @@ $(document).ready(function(){
 
 //////////////////////////////////////////////////////////////////
 
-var getGenre = 'https://api.themoviedb.org/3/genre/movie/list?language=en-US&api_key=193da39670a2ca585a07c3b83b8d786c';
+var rando = Math.floor(Math.random() * 20);
 
-var movieImage = 'https://api.themoviedb.org/3/configuration?api_key=193da39670a2ca585a07c3b83b8d786c';
+if( rando == 0){
+	rando == .1;
+}
 
-var actionGen = 'https://api.themoviedb.org/3/genre/28/movies?api_key=193da39670a2ca585a07c3b83b8d786c&page=1000'
-	$('#togenre').on('click', function(e){
+var scifiGen = `https://api.themoviedb.org/3/genre/878/movies?api_key=193da39670a2ca585a07c3b83b8d786c&page=${rando}`
+var horrorGen = `https://api.themoviedb.org/3/genre/27/movies?api_key=193da39670a2ca585a07c3b83b8d786c&page=${rando}`
+var romanceGen = `https://api.themoviedb.org/3/genre/10749/movies?api_key=193da39670a2ca585a07c3b83b8d786c&page=${rando}`
 	
-	$('#action-btn').on('click', function(){
-		$.get(actionGen, function(response){
+
+
+	$('#fantasy-modal').on('click', function(){
+
+		var fantasyGen = `https://api.themoviedb.org/3/genre/14/movies?api_key=193da39670a2ca585a07c3b83b8d786c&page=${rando}`;
+
+		$.get(fantasyGen, function(response){
 			response.results.forEach(function(movie){
-				var rating = movie.popularity;
-				var actionList = movie.title;
-				console.log(actionList)
+						
+					$.ajax({
+						url : "/watchlist",
+						method : "POST",
+						data : movie,
+						success : function(response){
+							console.log('posted ', response)
+
+						}
+					})
 			})
 		})
 	})
 });
 
-});
 
 
 

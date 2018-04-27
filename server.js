@@ -21,20 +21,22 @@ app.use(session({
     cookie: { maxAge: 30 * 60 * 1000 } // 30 minute cookie lifespan (in milliseconds)
 }));
 
-// app.use('/', function (req, res, next) {    
-//     req.currentUser = function (callback) {
-//       db.User.findOne({_id: req.session.userId}, function (err, user) {
-//         if (!user) {
-//           callback("No User Found", null)
-//         } else {
-//           req.user = user;
-//           callback(null, user);
-//         }
-//       });
-//     };
+app.use('/', function (req, res, next) {    
+    req.currentUser = function (callback) {
+      db.User.findOne({_id: req.session.userId}, function (err, user) {
+        if (!user) {
+          callback("No User Found", null)
+        } else {
+          req.user = user;
+          callback(null, user);
+        }
+      });
+    };
 
-  //   next();
-  // });
+    next();
+  });
+
+
 
 app.get('/', function (req,res) {
 	res.render('index');
@@ -47,11 +49,19 @@ app.get('/signup', function (req, res) {
 
 });
 
-app.post('/signup', function (req, res) {
+
+
+
+app.post('/users', function (req, res) {
     db.User.createSecure(req.body.username, req.body.email, req.body.password, function (err, user) {
+      console.log(req.body.username)
     res.json(user);
   });
 });
+
+
+
+
 ////////////
 //PROFILE//
 //////////
@@ -60,12 +70,29 @@ app.get('/profile', function (req, res) {
     res.render('profile', {user: currentUser})
   });
 });
+
+app.post('/watchlist', function (req, res) {
+  db.User.create(req.body.movies, function (err, currentUserList) {
+  res.json(currentUserList);
+  });
+});
+
+app.get('/watchlist', function (req, res) {
+  db.User.findOne({_id: req.session.userId}, function (err, currentUser) {
+    res.render('watchlist', {user: currentUser})
+  });
+});
+
 //////////
 //LOGIN//
 ////////
 app.get('/login', function (req, res) {
     res.render('login');
 });
+
+
+
+
 ////////////
 //SESSION//
 //////////
@@ -75,13 +102,31 @@ app.post('/sessions', function (req, res) {
     		res.json(exUser);
    });
  });
+
+
+
+
+/////////
+//FIND//
+///////
+app.get('/findamovie', function (req, res) {
+  res.render('find');
+});
+
+
+
+
 ///////////
 //LOGOUT//
 /////////
 app.get('/logout', function (req, res) {
-    req.session.userId = null;
+    req.user = null;
     res.redirect('/login');
 });
+
+
+
+
 ///////////
 //LISTEN//
 /////////

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<% include partials/head %>
+  <title>discover</title>
+
+<body>
+<% include partials/header %>
+
+<div class="container text-align">
+	<div class="row">
+		<div class="col-6 genre-col"
+				<!-- Fantasy -->
+				<div id="fantasy" class="card text-white bg-warning mb-3" style="max-width: 25rem;" data-toggle="modal" data-target="#fantasy-modal">
+				  <div class="card-body"><br><br><br>
+				    <h1 class="card-title">fantasy</h1>
+				  </div>
+				</div>
+		</div>
+		<div class="col-6 genre-col">
+				<!-- Sci-Fi -->
+				<div id="scifi" class="card text-white bg-info mb-3" style="max-width: 25rem;" data-toggle="modal" data-target="#scifi-modal">
+				  <div class="card-body"><br><br><br>
+				    <h1 class="card-title">sci-fi</h1>
+				  </div>
+				</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-6 genre-col">
+				<!-- Horror -->
+				<div id="horror" class="card text-white bg-dark mb-3" style="max-width: 25rem;" data-toggle="modal" data-target="#horror-modal">
+				  <div class="card-body"><br><br><br><br><br>
+				    <h1 class="card-title">horror</h1>
+				  </div>
+				</div>
+		</div>
+		<div class="col-6 genre-col">
+				<!-- Romance -->
+				<div id="romance" class="card text-white bg-danger mb-3" style="max-width: 25rem;" data-toggle="modal" data-target="#romance-modal">
+				  <div class="card-body"><br><br><br><br><br>
+				    <h1 class="card-title">romance</h1>
+				  </div>
+				</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="modal fade" id="fantasy-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      
+      <div class="modal-body" data-target="#movie-modal" data-toggle="modal">
+      	<br><br><br><br><br><br>
+       	<a data-dismiss="modal"><h1 class="sendit-btn text-align">send it</h1></a>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+	<div class="modal fade" id="scifi-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
+	    <div class="modal-content">
+	      <div class="modal-body" data-target="#random-modal" data-toggle="modal">
+      			<br><br><br><br><br><br>
+       			<a data-dismiss="modal"><h1 class="sendit-btn text-align">send it</h1></a>
+      		</div>
+	    </div>
+	  </div>
+	</div>
+
+		<div class="modal fade" id="horror-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered" role="document">
+		    <div class="modal-content" data-target="#random-modal" data-toggle="modal">
+		      <div class="modal-body">
+      				<br><br><br><br><br><br>
+       				<a data-dismiss="modal"><h1 class="sendit-btn text-align">send it</h1></a>
+      			</div>
+		    </div>
+		  </div>
+		</div>
+
+			<div class="modal fade" id="romance-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+			  <div class="modal-dialog modal-dialog-centered" role="document">
+			    <div class="modal-content" data-target="#random-romance-modal" data-toggle="modal">
+			      <div class="modal-body">
+      					<br><br><br><br><br><br>
+       					<a data-dismiss="modal"><h1 class="sendit-btn text-align">send it</h1></a>
+      				</div>
+			    </div>
+			  </div>
+			</div>
+
+</body>
+</html>

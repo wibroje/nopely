@@ -1,12 +1,19 @@
 #nopely-header {
 	background-color: rgba(255,236,134,.9);
 	text-align: center;
+	
+	border-bottom-left-radius: 1em;
+	border-bottom: solid rgba(255,255,255,.5) 1em;
+	border-right: solid rgba(255,255,255,.5) 2em;
+	border-left: solid transparent 2em;
 }
 
 #nopely-text {
 	font-family: 'Gugi', cursive;
 	font-weight: bold;
 	font-size: 700%;
+	text-shadow: 11px 1px 1px rgba(255,255,255,.5), 
+               3px 3px 5px rgba(255,255,255,.5);
 }
 
 #nopely-logo {
@@ -22,8 +29,42 @@
 
 }
 
+.sendit-btn{
+	font-family: 'Gugi', cursive;
+	font-weight: bold;
+	font-size: 700%;
+	text-shadow: 11px 1px 1px rgba(255,255,255,.5), 
+               3px 3px 5px rgba(255,255,255,.5);
+}
+
+
+
+.modal-content{
+	background-color: rgba(255,25,25,1);
+	border: solid rgba(255,100,100,1) 1em;
+	border-radius: 50%;
+	height: 30em;
+}
+
+.random-modal-content{
+	background-color: black;
+	height:50em;
+	width: 100%;
+}
+
 .text-align {
 	text-align: center;
+}
+
+.genre-col {
+	display: flex;
+	justify-content: center;
+
+}
+
+.card {
+	width: 25em;
+	height: 20em;
 }
 
 h2 {

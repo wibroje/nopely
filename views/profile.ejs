@@ -11,28 +11,45 @@
         </h2>
     <div class="row">
       <div class="col-12">
-        
-          <div class="row">
-            <div id="watchlist">
-              <h2>here is your watchlist!</h2>
-              <br>
-              
-            </div>
-        </div>
     <div class="row">
       <div class="col-12">
             <div id="genrelist">
-          <h2>select genre of your choice
-          </h2>
-        <br>
-              <button id="fantasy-btn" class="btn btn-warning">Fantasy</button>
-              <button id="scifi-btn" class="btn btn-warning">Sci-Fi</button>
-              <button id="horror" class="btn btn-warning">Horror</button>
-              <button id="romance" class="btn btn-warning">Romance</button>
+              <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+<br><br><br>
+
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <a href="/findamovie"><img class="d-block w-100" src="https://greenbaydecking.com/wp-content/uploads/2017/12/800x400.png" alt="First slide"></a>
+    </div>
+    <div class="carousel-item">
+      <a href="/watchlist"><img class="d-block w-100" src="https://greenbaydecking.com/wp-content/uploads/2017/12/800x400.png" alt="Second slide"></a>
+    </div>
+    <div class="carousel-item">
+      <a href="/favorites"><img class="d-block w-100" src="https://greenbaydecking.com/wp-content/uploads/2017/12/800x400.png" alt="Third slide"></a>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+<h2><%= user.movies %></h2>
+
               <a id="logout" href="/logout" class="btn btn-danger pull-right" style="align-self:flex-end;">log out</a>
             </div>
       </div>
     </div>
   </div>
+    <div id="movieprint"></div>
 </body>
 </html>
