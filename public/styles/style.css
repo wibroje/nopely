@@ -37,8 +37,6 @@
                3px 3px 5px rgba(255,255,255,.5);
 }
 
-
-
 .modal-content{
 	background-color: rgba(255,25,25,1);
 	border: solid rgba(255,100,100,1) 1em;
@@ -46,10 +44,34 @@
 	height: 30em;
 }
 
-.random-modal-content{
+.p-modal-content{
 	background-color: black;
 	height:50em;
 	width: 100%;
+}
+
+#p-modal-title{
+	font-family: 'Gugi', cursive;
+	font-weight: bold;
+	color: white;
+	font-size: 300%;
+	text-shadow: 11px 1px 1px rgba(255,255,255,.5), 
+               3px 3px 5px rgba(255,255,255,.5);
+}
+
+#modal-text{
+	font-family: 'Rajdhani', sans-serif;
+	color: white;
+	font-size: 3em;
+}
+
+.sendit-text{
+	font-family: 'Gugi', cursive;
+	font-weight: bold;
+	color: white;
+	font-size: 600%;
+	text-shadow: 11px 1px 1px rgba(255,25,25,.5), 
+               3px 3px 5px rgba(255,25,25,.5);
 }
 
 .text-align {
@@ -67,14 +89,36 @@
 	height: 20em;
 }
 
+.white-hr{
+	height: 1px;
+	background-color: white;
+}
+
+.deleteBtn{
+	height: 4em;
+	width: 50%;
+	font-size: 5em;
+	font-family: 'Gugi', cursive;
+	border: solid rgba(255,255,255,.3) .15em;
+	border-radius: 50%;
+	text-shadow: 11px 1px 1px rgba(0,0,0,.5), 
+               3px 3px 5px rgba(0,0,0,.5);
+}
+
 h2 {
 	color: white;
 	font-size: 400%;
 	font-family: 'Patrick Hand SC', cursive;
-
 }
 
 body{
-	background-color: rgba(0,0,0,.9);
+	background-image: url('../images/dark-triangles.png');
+}
+
+.movie-img{
+	border-radius: 1em;
+	-moz-box-shadow: 0 0 3em #fff; 
+	-webkit-box-shadow: 0 0 3em #fff;
+	box-shadow: 0px 0px 3em #fff;
 }
 

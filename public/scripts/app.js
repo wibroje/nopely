@@ -47,37 +47,111 @@ $(document).ready(function(){
 
 //////////////////////////////////////////////////////////////////
 
-var rando = Math.floor(Math.random() * 20);
-
-if( rando == 0){
-	rando == .1;
-}
-
-var scifiGen = `https://api.themoviedb.org/3/genre/878/movies?api_key=193da39670a2ca585a07c3b83b8d786c&page=${rando}`
-var horrorGen = `https://api.themoviedb.org/3/genre/27/movies?api_key=193da39670a2ca585a07c3b83b8d786c&page=${rando}`
-var romanceGen = `https://api.themoviedb.org/3/genre/10749/movies?api_key=193da39670a2ca585a07c3b83b8d786c&page=${rando}`
+var rando = Math.floor(Math.random() * 100);
 	
-
-
 	$('#fantasy-modal').on('click', function(){
 
-		var fantasyGen = `https://api.themoviedb.org/3/genre/14/movies?api_key=193da39670a2ca585a07c3b83b8d786c&page=${rando}`;
+		var fantasyGen = 'https://api.themoviedb.org/3/genre/14/movies?api_key=193da39670a2ca585a07c3b83b8d786c&page=' + '1' + rando;
 
 		$.get(fantasyGen, function(response){
-			response.results.forEach(function(movie){
+			var items = response.results;
+			var item = items[Math.floor(Math.random()*items.length)];
+
+					$.ajax({
+						url : "/watchlist",
+						method : "POST",
+						data : item,
+						success : function(response){
+							console.log('fantasy sent')
+								window.location ="/watchlist"
+						}
+					})
+			})
+		
+	})
+
+	$('#scifi-modal').on('click', function(){
+
+		var scifiGen = 'https://api.themoviedb.org/3/genre/878/movies?api_key=193da39670a2ca585a07c3b83b8d786c&page=' + '1' + rando;
+
+		$.get(scifiGen, function(response){
+			var items = response.results;
+			var item = items[Math.floor(Math.random()*items.length)];
 						
 					$.ajax({
 						url : "/watchlist",
 						method : "POST",
-						data : movie,
+						data : item,
 						success : function(response){
-							console.log('posted ', response)
-
+							console.log('scifi sent')
+								window.location ="/watchlist"
 						}
 					})
 			})
-		})
+		
 	})
+
+	$('#horror-modal').on('click', function(){
+
+		var horrorGen = 'https://api.themoviedb.org/3/genre/27/movies?api_key=193da39670a2ca585a07c3b83b8d786c&page=' + '1' + rando;
+
+		$.get(horrorGen, function(response){
+			var items = response.results;
+			var item = items[Math.floor(Math.random()*items.length)];
+						
+					$.ajax({
+						url : "/watchlist",
+						method : "POST",
+						data : item,
+						success : function(response){
+							console.log('horror sent')
+								window.location ="/watchlist"
+						}
+					})
+				
+			})
+		})
+
+	$('#romance-modal').on('click', function(){
+
+		var romanceGen = 'https://api.themoviedb.org/3/genre/10749/movies?api_key=193da39670a2ca585a07c3b83b8d786c&page=' + '1' + rando;
+
+		$.get(romanceGen, function(response){
+			var items = response.results;
+			var item = items[Math.floor(Math.random()*items.length)];
+						
+					$.ajax({
+						url : "/watchlist",
+						method : "POST",
+						data : item,
+						success : function(response){
+							console.log('romance sent')
+								window.location ="/watchlist"
+						}
+					})
+				
+			})
+	})
+
+	$('.movie-box').on('click', '.deleteBtn', function(){
+		var id = $(this).attr('data-id')
+		$.ajax({
+			url : "/watchlist/" + id,
+			method : "DELETE",
+			success : function(result){
+    				$('body').fadeOut(1000);
+            				location.reload(true);
+    					setTimeout(function(){
+        					$('body').fadeIn(1000);
+    			}, 2000);
+}
+			})
+
+
+
+		})
+	
+
 });
 
 

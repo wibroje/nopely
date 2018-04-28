@@ -1,11 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <% include partials/head %>
+  <title>watchlist</title>
 
 <body>
 <% include partials/header %>
 
-<h2><%= user.movies %></h2>
+<div class="container">
+    <div class="row text-align">
+        <div class="col-12">
+<h1 class="sendit-text">watchlist</h1>
+<hr style="height:.5em;background-color:white;border-bottom:solid .25em rgba(255,25,25,.8); border-right:solid .5em rgba(255,25,25,.8);">
+					
+<% movie.forEach(function(movies){ %>
+<div class="movie-box" id='<%= movies._id %>'>
 
-</body>
-</html>
+<h2><%= movies.title %>
+</h2>
+	<br>
+<img class="movie-img" src="https://image.tmdb.org/t/p/w500/<%= movies.poster_path %>" data-toggle="modal" data-target=".p-modal">
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+<p id="modal-text"> <%= movies.overview %> </p>
+	<br>
+	<br>
+	<button type="button" name="button" id="delete-btn" class="deleteBtn btn btn-danger" data-id='<%= movies._id %>'>nope</button>
+	<br>
+	<br>
+	<hr class="white-hr">
+	<br>
+	<br>
+
+		
+				<% }) %>
+			</div>
+		</div>
+	</div>
+</div>

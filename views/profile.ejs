@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<% include partials/head %>
-  <title><%= user.username %>'s profile</title>
-
+  <head>
+    <title><%= user.username %>'s profile</title>
+    <% include partials/head %>
+  </head>
 <body>
 <% include partials/header %>
 
   <div class="container text-align">
     <h2>oh, hey <%= user.username %>
-        </h2>
+      </h2>
     <div class="row">
       <div class="col-12">
     <div class="row">
@@ -24,7 +25,7 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <a href="/findamovie"><img class="d-block w-100" src="https://greenbaydecking.com/wp-content/uploads/2017/12/800x400.png" alt="First slide"></a>
+      <a href="/find"><img class="d-block w-100" src="https://greenbaydecking.com/wp-content/uploads/2017/12/800x400.png" alt="First slide"></a>
     </div>
     <div class="carousel-item">
       <a href="/watchlist"><img class="d-block w-100" src="https://greenbaydecking.com/wp-content/uploads/2017/12/800x400.png" alt="Second slide"></a>
@@ -43,13 +44,10 @@
   </a>
 </div>
 
-<h2><%= user.movies %></h2>
-
               <a id="logout" href="/logout" class="btn btn-danger pull-right" style="align-self:flex-end;">log out</a>
             </div>
       </div>
     </div>
   </div>
-    <div id="movieprint"></div>
 </body>
 </html>

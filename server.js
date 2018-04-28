@@ -36,11 +36,11 @@ app.use('/', function (req, res, next) {
     next();
   });
 
-
-
 app.get('/', function (req,res) {
 	res.render('index');
 })
+
+
 ///////////
 //SIGNUP//
 /////////
@@ -48,17 +48,29 @@ app.get('/signup', function (req, res) {
     res.render('signup');
 
 });
-
-
-
-
 app.post('/users', function (req, res) {
     db.User.createSecure(req.body.username, req.body.email, req.body.password, function (err, user) {
       console.log(req.body.username)
     res.json(user);
   });
 });
-
+///////////
+//UPDATE//
+/////////
+app.put("/users", (req, res) => {
+    let newUserData = req.body;
+    User.findByIdAndUpdate(req.params.userId, newUserData, null, () => {
+        res.redirect("/profile");
+    });
+});
+///////////
+//DELETE//
+/////////
+app.delete("/users", (req, res) => {
+  User.findByIdAndRemove(req.params.userId, null, (err, removeSuccess) => {
+    res.send('Success')
+  })
+})
 
 
 
@@ -70,19 +82,15 @@ app.get('/profile', function (req, res) {
     res.render('profile', {user: currentUser})
   });
 });
-
-app.post('/watchlist', function (req, res) {
-  db.User.create(req.body.movies, function (err, currentUserList) {
-  res.json(currentUserList);
-  });
-});
-
-app.get('/watchlist', function (req, res) {
-  db.User.findOne({_id: req.session.userId}, function (err, currentUser) {
-    res.render('watchlist', {user: currentUser})
-  });
-});
-
+////////////
+//SESSION//
+//////////
+app.post('/sessions', function (req, res) {
+	db.User.authenticate(req.body.email, req.body.password, function (err, exUser) {
+		req.session.userId = exUser._id;
+    		res.json(exUser);
+   });
+ });
 //////////
 //LOGIN//
 ////////
@@ -93,26 +101,36 @@ app.get('/login', function (req, res) {
 
 
 
-////////////
-//SESSION//
-//////////
-app.post('/sessions', function (req, res) {
-	db.User.authenticate(req.body.email, req.body.password, function (err, exUser) {
-		req.session.userId = exUser._id;
-    		res.json(exUser);
-   });
- });
 
 
+///////////
+//MOVIES//
+/////////
+app.post('/watchlist', function (req, res) {
+  db.Movie.create(req.body, function (err, currentUserList) {
+  res.json(currentUserList);
+  });
+});
 
-
+app.get('/watchlist', function (req, res) {
+  db.Movie.find(req.body, function (err, list){
+  res.render('watchlist', {movie : list})
+  })
+})
 /////////
 //FIND//
 ///////
-app.get('/findamovie', function (req, res) {
+app.get('/find', function (req, res) {
   res.render('find');
 });
-
+///////////
+//DELETE//
+/////////
+app.delete("/watchlist/:movieid", (req, res) => {
+  db.Movie.findByIdAndRemove(req.params.movieid, null, (err, removeSuccess) => {
+    res.send('Success')
+  })
+})
 
 
 
