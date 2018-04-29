@@ -1,13 +1,14 @@
 var mongoose = require('mongoose'),
   bcrypt = require('bcrypt');
 
-
 var Schema = mongoose.Schema;
 
+  MovieSchema = require('./index')
 var UserSchema = new Schema({
   username: String,
   email: String,
-  passwordDigest: String
+  passwordDigest: String,
+  movie: [MovieSchema]
 });
 
 UserSchema.statics.createSecure = function (username, email, password, callback) {

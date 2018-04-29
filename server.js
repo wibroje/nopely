@@ -124,8 +124,9 @@ app.post('/watchlist', function (req, res) {
 app.get('/watchlist', function (req, res) {
   db.Movie.find(req.body, function (err, list){
   res.render('watchlist', {movie : list})
-  })
-})
+  });
+});
+
 /////////
 //FIND//
 ///////
