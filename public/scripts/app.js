@@ -26,6 +26,7 @@ $(document).ready(function(){
 
 	})
 
+
 	$('#login-form').on('submit', function(e){
 		e.preventDefault();
 
@@ -43,6 +44,36 @@ $(document).ready(function(){
 					window.location = "/profile"
 				}
 			})
+	})
+
+
+	$('#update-form').on('submit', function(e){
+		e.preventDefault();
+			var id = $(this).attr('data-id')
+			let data = $('#username-change').val();
+				
+			$.ajax({
+				url : "/users/" + id,
+				method : "PUT",
+				data : data,
+				success : function(response){
+					console.log('update')
+				}
+			})
+	})
+
+
+	$('#delete-account').on('click', function(){
+		var id = $(this).attr('data-id')
+
+		$.ajax({
+			url : "/users/" + id,
+			method : "DELETE",
+			success : function(){
+				window.location ="/"
+			}
+
+		})
 	})
 
 //////////////////////////////////////////////////////////////////

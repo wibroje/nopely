@@ -41,12 +41,12 @@ app.get('/', function (req,res) {
 })
 
 
+
 ///////////
 //SIGNUP//
 /////////
 app.get('/signup', function (req, res) {
     res.render('signup');
-
 });
 app.post('/users', function (req, res) {
     db.User.createSecure(req.body.username, req.body.email, req.body.password, function (err, user) {
@@ -54,20 +54,29 @@ app.post('/users', function (req, res) {
     res.json(user);
   });
 });
+
+
 ///////////
 //UPDATE//
 /////////
-app.put("/users", (req, res) => {
+app.get('/account', function (req, res) {
+  db.User.findOne({_id: req.session.userId}, function (err, updateUser) {
+  res.render('account', {user: updateUser});
+  });
+});
+
+app.put("/users/:userid", (req, res) => {
     let newUserData = req.body;
-    User.findByIdAndUpdate(req.params.userId, newUserData, null, () => {
-        res.redirect("/profile");
+    db.User.findByIdAndUpdate(req.params.userid, newUserData, null, function(err, newInfo) {
+        res.json(newInfo);
     });
 });
+
 ///////////
 //DELETE//
 /////////
-app.delete("/users", (req, res) => {
-  User.findByIdAndRemove(req.params.userId, null, (err, removeSuccess) => {
+app.delete("/users/:userid", (req, res) => {
+  db.User.findByIdAndRemove(req.params.userid, null, (err, removeSuccess) => {
     res.send('Success')
   })
 })
@@ -141,8 +150,6 @@ app.get('/logout', function (req, res) {
     req.user = null;
     res.redirect('/login');
 });
-
-
 
 
 ///////////
