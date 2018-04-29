@@ -110,8 +110,6 @@ app.get('/login', function (req, res) {
 
 
 
-
-
 ///////////
 //MOVIES//
 /////////
@@ -136,11 +134,11 @@ app.get('/find', function (req, res) {
 ///////////
 //DELETE//
 /////////
-app.delete("/watchlist/:movieid", (req, res) => {
-  db.Movie.findByIdAndRemove(req.params.movieid, null, (err, removeSuccess) => {
-    res.send('Success')
-  })
-})
+// app.delete("/watchlist/:movieid", (req, res) => {
+//   db.User.findByIdAndRemove(req.params.movieid, null, (err, removeSuccess) => {
+//     res.send('Success')
+//   })
+// })
 
 
 

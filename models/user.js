@@ -3,12 +3,10 @@ var mongoose = require('mongoose'),
 
 var Schema = mongoose.Schema;
 
-  MovieSchema = require('./index')
 var UserSchema = new Schema({
   username: String,
   email: String,
-  passwordDigest: String,
-  movie: [MovieSchema]
+  passwordDigest: String
 });
 
 UserSchema.statics.createSecure = function (username, email, password, callback) {
