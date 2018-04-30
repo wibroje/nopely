@@ -83,7 +83,7 @@ app.put("/users/:id", (req, res) => {
 /////////
 app.delete("/users/:userid", (req, res) => {
   db.User.findByIdAndRemove(req.params.userid, null, (err, removeSuccess) => {
-    res.send('Success')
+    res.redirect('/')
   })
 })
 

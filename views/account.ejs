@@ -9,18 +9,18 @@
       <div class="col-12">
         <h2>update your account</h2>
         <hr>
-        <form id="update-form" data-id="<%= user._id %>">
+        <form id="update-form" data-id="<%= user._id %>" autocomplete="off">
           <div class="form-group">
             <h4>current username: <%= user.username %> </h4><input id="username-change" type="text" name="username" class="form-control" placeholder="Change Display Name" autofocus>
           </div>
           <div class="form-group">
           <div class="form-group">
           <div class="form-group">
-            <input id="update-account" type="submit" value="Update" class="submit btn btn-danger">
+            <input id="update-account" type="submit" value="Update" class="submit btn btn-danger" style="width:100%;background-color:green;border-color:green;">
           </div>
         </form>
         <br><br><br>
-        <button id="delete-account" data-id="<%= user._id %>" class="submit btn btn-danger">DELETE ACCOUNT</button>
+        <button id="delete-account" data-id="<%= user._id %>" class="submit btn btn-danger" style="width:100%;">DELETE ACCOUNT</button>
       </div>
     </div>
   </div>

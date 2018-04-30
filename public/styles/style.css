@@ -16,9 +16,14 @@
                3px 3px 5px rgba(255,255,255,.5);
 }
 
-#nopely-logo {
-	
-	
+#nopely-footer {
+	background-color: rgba(255,236,134,.9);
+	text-align: center;
+	height: 10em;
+	border-top-left-radius: 1em;
+	border-top: solid rgba(255,255,255,.5) 1em;
+	border-right: solid rgba(255,255,255,.5) 2em;
+	border-left: solid transparent 2em;
 }
 
 #signup-btn {
@@ -88,6 +93,10 @@
 	width: 25em;
 	height: 20em;
 }
+.card:hover{
+	background-color:white;
+	font-color:black;
+}
 
 .white-hr{
 	height: 1px;
@@ -96,7 +105,7 @@
 
 .deleteBtn{
 	height: 4em;
-	width: 50%;
+	width: 4em;
 	font-size: 5em;
 	font-family: 'Gugi', cursive;
 	border: solid rgba(255,255,255,.3) .15em;
@@ -105,10 +114,54 @@
                3px 3px 5px rgba(0,0,0,.5);
 }
 
+.signupBtn{
+	height: 2em;
+	width: 4em;
+	background-color: green;
+	font-size: 5em;
+	font-family: 'Rajdhani', cursive;
+	border: solid rgba(255,255,255,.3) .15em;	
+}
+.signupBtn:hover{
+	background-color:yellow;
+	color: black;
+	border-color: magenta;
+}
+
+.loginBtn{
+	height: 2em;
+	width: 4em;
+	background-color: purple;
+	font-size: 5em;
+	font-family: 'Rajdhani', cursive;
+	border: solid rgba(255,255,255,.3) .15em;
+}
+.loginBtn:hover{
+	background-color:skyblue;
+	color: black;
+	border-color: magenta;
+}
+
+.logoutBtn{
+	height: 2em;
+	width: 4em;
+	background-color: red;
+	font-size: 5em;
+	font-family: 'Rajdhani', cursive;
+	border: solid rgba(255,255,255,.3) .15em;
+}
+.logoutBtn:hover{
+	background-color:magenta;
+	color: black;
+	border-color:rgba(255,236,134,.9);
+}
+
+
 h2 {
 	color: white;
 	font-size: 400%;
-	font-family: 'Patrick Hand SC', cursive;
+	font-family: 'Rajdhani', cursive;
+	font-weight: bold;
 }
 
 h4{
@@ -119,6 +172,37 @@ body {
 background-image: url('../images/dark-bg.png');
 }
 
+.carousel-item{
+	height: 20em;
+	width: 100%;
+	background-color: rgba(255,236,134,.9);
+	border-radius: 1em;
+	border-left: solid transparent 1em;
+	border-right: solid rgba(255,255,255,.5) 1em;
+	border-top: solid transparent .5em;
+	border-bottom: solid rgba(255,255,255,.5) .5em;
+	
+}
+
+a h1{
+	font-size: 500%;
+	font-family: 'Gugi', cursive;
+	text-shadow: 11px 1px 1px rgba(255,25,25,.5), 
+               3px 3px 5px rgba(255,25,25,.5);
+    color:black;
+
+}
+
+a:hover{
+	text-decoration: none;
+	color:black;
+	text-shadow: 11px 1px 1px rgba(255,25,25,.5), 
+               3px 3px 5px rgba(255,25,25,.5);
+}
+
+input{
+	background-color: black;
+}
 
 .movie-img{
 	border-radius: 1em;

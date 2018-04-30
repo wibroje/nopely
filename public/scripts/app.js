@@ -59,19 +59,20 @@ $(document).ready(function(){
 				data : data,
 				success : function(data){
 					$('#update-form').val("");
-					window.location = "/profile"
+					window.location = "/"
 				}
 			})
 	})
 
 
 	$('#delete-account').on('click', function(){
-		var id = $(this).attr('data-id')
+		var id = $('#delete-account').attr('data-id')
 
 		$.ajax({
 			url : "/users/" + id,
 			method : "DELETE",
 			success : function(){
+				
 				window.location ="/"
 			}
 

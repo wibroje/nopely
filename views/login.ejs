@@ -11,7 +11,7 @@
         <h2>log in</h2>
         <hr>
 
-        <form id="login-form">
+        <form id="login-form" autocomplete="off">
           <div class="form-group">
             <input id="email-input" type="text" name="email" class="form-control" placeholder="Email" autofocus>
           </div>
@@ -19,12 +19,13 @@
             <input id="password-input" type="password" name="password" class="form-control" placeholder="Password">
           </div>
           <div class="form-group">
-            <input type="submit" value="Log In" class="login btn btn-danger">
-          </div>
-          <h5>don't have an account? <a href="/signup">sign up</a> for one, silly</h5>
+            <input type="submit" value="Log In" class="login btn btn-danger loginBtn">
+          </div><br><br>
+          
         </form>
       </div>
     </div>
   </div>
+  <h5>don't have an account? <a href="/signup">sign up</a> for one, silly</h5>
 </body>
 </html>
