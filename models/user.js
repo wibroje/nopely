@@ -1,13 +1,13 @@
 var mongoose = require('mongoose'),
-  bcrypt = require('bcrypt');
-
-var Schema = mongoose.Schema;
+    bcrypt   = require('bcrypt');
+var Schema   = mongoose.Schema;
 
 var UserSchema = new Schema({
   username: String,
   email: String,
   passwordDigest: String
 });
+
 
 UserSchema.statics.createSecure = function (username, email, password, callback) {
 var UserModel = this;
@@ -20,7 +20,7 @@ var UserModel = this;
       	username: username,
         email: email,
         passwordDigest: hash
-      }, callback);
+      }, callback); 
     });
   });
 };

@@ -49,15 +49,17 @@ $(document).ready(function(){
 
 	$('#update-form').on('submit', function(e){
 		e.preventDefault();
+		console.log('clicked')
 			var id = $(this).attr('data-id')
-			let data = $('#username-change').val();
+			let data = $(this).serialize();
 				
 			$.ajax({
 				url : "/users/" + id,
 				method : "PUT",
 				data : data,
-				success : function(response){
-					console.log('update')
+				success : function(data){
+					$('#update-form').val("");
+					window.location = "/profile"
 				}
 			})
 	})
@@ -171,10 +173,9 @@ var rando = Math.floor(Math.random() * 100);
 			method : "DELETE",
 			success : function(result){
     				$('body').fadeOut(1000);
-            				location.reload(true);
     					setTimeout(function(){
-        					$('body').fadeIn(1000);
-    			}, 2000);
+            				location.reload(true);
+    			}, 1000);
 }
 			})
 

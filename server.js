@@ -37,7 +37,7 @@ app.use('/', function (req, res, next) {
   });
 
 app.get('/', function (req,res) {
-	res.render('index');
+  res.render('index');
 })
 
 
@@ -48,6 +48,7 @@ app.get('/', function (req,res) {
 app.get('/signup', function (req, res) {
     res.render('signup');
 });
+
 app.post('/users', function (req, res) {
     db.User.createSecure(req.body.username, req.body.email, req.body.password, function (err, user) {
       console.log(req.body.username)
@@ -65,12 +66,17 @@ app.get('/account', function (req, res) {
   });
 });
 
-app.put("/users/:userid", (req, res) => {
-    let newUserData = req.body;
-    db.User.findByIdAndUpdate(req.params.userid, newUserData, null, function(err, newInfo) {
-        res.json(newInfo);
+app.put("/users/:id", (req, res) => {
+  let newName = req.body;
+    db.User.findByIdAndUpdate
+      (req.params.id,
+        req.body, 
+          function (err, newInfo) {
+            console.log(newInfo)
+              res.json(newInfo);
     });
 });
+
 
 ///////////
 //DELETE//
@@ -82,7 +88,6 @@ app.delete("/users/:userid", (req, res) => {
 })
 
 
-
 ////////////
 //PROFILE//
 //////////
@@ -91,23 +96,25 @@ app.get('/profile', function (req, res) {
     res.render('profile', {user: currentUser})
   });
 });
+
+
 ////////////
 //SESSION//
 //////////
 app.post('/sessions', function (req, res) {
-	db.User.authenticate(req.body.email, req.body.password, function (err, exUser) {
-		req.session.userId = exUser._id;
-    		res.json(exUser);
+  db.User.authenticate(req.body.email, req.body.password, function (err, exUser) {
+    req.session.userId = exUser._id;
+        res.json(exUser);
    });
  });
+
+
 //////////
 //LOGIN//
 ////////
 app.get('/login', function (req, res) {
     res.render('login');
 });
-
-
 
 
 ///////////
@@ -125,21 +132,23 @@ app.get('/watchlist', function (req, res) {
   });
 });
 
+
 /////////
 //FIND//
 ///////
 app.get('/find', function (req, res) {
   res.render('find');
 });
+
+
 ///////////
 //DELETE//
 /////////
-// app.delete("/watchlist/:movieid", (req, res) => {
-//   db.User.findByIdAndRemove(req.params.movieid, null, (err, removeSuccess) => {
-//     res.send('Success')
-//   })
-// })
-
+app.delete("/watchlist/:movieid", (req, res) => {
+  db.Movie.findByIdAndRemove(req.params.movieid, null, (err, removeSuccess) => {
+    res.send('Success')
+  })
+})
 
 
 ///////////
